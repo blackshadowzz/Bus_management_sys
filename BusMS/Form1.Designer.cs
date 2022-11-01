@@ -35,7 +35,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(295, 114);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 156);
             this.button1.TabIndex = 0;
@@ -44,9 +44,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(553, 555);
+            this.button2.Location = new System.Drawing.Point(553, 257);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 167);
+            this.button2.Size = new System.Drawing.Size(166, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
