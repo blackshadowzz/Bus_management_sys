@@ -20,7 +20,7 @@ namespace BusMS
             InitializeComponent();
         }
         OracleConnection conn = DBConnection.Connection();
-        int id;
+        string id;
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             if (btnAddNew.Text == "Add New")
@@ -94,7 +94,7 @@ namespace BusMS
             txtEmail.Clear();
             cbGender.Text= string.Empty;
             cbRole.Text= string.Empty;
-            dtpDob.Text= string.Empty;
+            dtpDob.Text = "";
         }
         void showData()
         {
@@ -133,6 +133,137 @@ namespace BusMS
 
             cbRole.Items.Add("Employee");
             cbRole.Items.Add("Driver");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if(btnUpdate.Text=="Update")
+            {
+                if(string.IsNullOrEmpty(id)&& string.IsNullOrEmpty(txtFname.Text))
+                {
+                    mess_alert.warning("Please select record to update!", "Update Employee");
+
+                }
+                else
+                {
+                    try
+                    {
+                        conn.Open();
+                        OracleCommand cmd = new OracleCommand("updateEmp", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("e_id", OracleDbType.Int32).Value = int.Parse(id);
+                        cmd.Parameters.Add("e_fname", txtFname.Text);
+                        cmd.Parameters.Add("e_lname", txtLname.Text);
+                        cmd.Parameters.Add("e_dob", dtpDob.Value);
+                        cmd.Parameters.Add("e_gender", cbGender.Text);
+                        cmd.Parameters.Add("e_phone", txtPhone.Text);
+                        cmd.Parameters.Add("e_email", txtEmail.Text);
+                        cmd.Parameters.Add("e_address", txtAddress.Text);
+                        cmd.Parameters.Add("e_role", cbRole.Text);
+                        cmd.Parameters.Add("e_salary", decimal.Parse(txtSalary.Text));
+                        cmd.Parameters.Add("e_upby", "Mango");
+                        cmd.ExecuteNonQuery();
+
+                        cmd.Dispose();
+                        showData();
+                        mess_alert.info("One record has been updated successfully!", "Update Employee");
+                        clearData();
+
+
+                    }
+                    catch(Exception ex)
+                    {
+                        mess_alert.error(ex.Message, "Error");
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id =dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtFname.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtLname.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            dtpDob.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            cbGender.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtPhone.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtEmail.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            txtAddress.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            cbRole.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            txtSalary.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (btnDelete.Text == "Cancel")
+            {
+                clearData();
+                btnDelete.Text = "Remove";
+                btnUpdate.Enabled = true;
+                btnAddNew.Text = "Add New";
+            }else if (btnDelete.Text == "Remove")
+            {
+                if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(txtFname.Text))
+                {
+                    mess_alert.warning("Please select record to remove!", "Remove Employee");
+
+                }
+                else
+                {
+                    try
+                    {
+                        conn.Open();
+                        OracleCommand cmd = new OracleCommand("deleteEmp", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("e_id", OracleDbType.Int32).Value = int.Parse(id);
+                        cmd.Parameters.Add("e_status", 1);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.Dispose();
+                        showData();
+                        mess_alert.warning("One record has been removed successfully!", "Delete Employee");
+                        clearData();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        mess_alert.error(ex.Message, "Error");
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            //create command text
+            OracleCommand cmd = new OracleCommand("searchEmp", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //add value for parameter stor procedure
+            cmd.Parameters.Add("e_fname", txtSearch.Text.Trim()); 
+
+            //create dataAdapter object
+            OracleDataAdapter adapter = new OracleDataAdapter();
+            adapter.SelectCommand = cmd;
+            //OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            dt.Dispose();
+            adapter.Dispose();
+            cmd.Dispose();
+            conn.Close();
         }
     }
 }

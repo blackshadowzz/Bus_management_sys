@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnUserform = new System.Windows.Forms.Button();
             this.btnEmpform = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.btnDriver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.btnDriver);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnUserform);
             this.panel1.Controls.Add(this.btnEmpform);
@@ -54,6 +56,28 @@
             this.panel1.Size = new System.Drawing.Size(131, 657);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(131, 45);
+            this.panel3.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "BUS MS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnUserform
             // 
             this.btnUserform.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -61,7 +85,7 @@
             this.btnUserform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserform.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserform.ForeColor = System.Drawing.Color.White;
-            this.btnUserform.Location = new System.Drawing.Point(0, 133);
+            this.btnUserform.Location = new System.Drawing.Point(0, 178);
             this.btnUserform.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUserform.Name = "btnUserform";
             this.btnUserform.Size = new System.Drawing.Size(131, 45);
@@ -103,18 +127,6 @@
             this.button1.Text = "DASHBOARD";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "BUS MS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(52)))));
@@ -124,16 +136,6 @@
             this.panel2.Size = new System.Drawing.Size(1058, 45);
             this.panel2.TabIndex = 3;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(131, 45);
-            this.panel3.TabIndex = 4;
-            // 
             // menuPanel
             // 
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -141,6 +143,23 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(1058, 612);
             this.menuPanel.TabIndex = 4;
+            // 
+            // btnDriver
+            // 
+            this.btnDriver.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDriver.FlatAppearance.BorderSize = 0;
+            this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDriver.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDriver.ForeColor = System.Drawing.Color.White;
+            this.btnDriver.Location = new System.Drawing.Point(0, 133);
+            this.btnDriver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDriver.Name = "btnDriver";
+            this.btnDriver.Size = new System.Drawing.Size(131, 45);
+            this.btnDriver.TabIndex = 5;
+            this.btnDriver.Text = "DRIVER";
+            this.btnDriver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDriver.UseVisualStyleBackColor = false;
+            this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 
             // Mainform
             // 
@@ -173,5 +192,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Button btnDriver;
     }
 }

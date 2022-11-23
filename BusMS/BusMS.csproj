@@ -81,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="Driverform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Driverform.Designer.cs">
+      <DependentUpon>Driverform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employeeform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <Compile Include="Userform.Designer.cs">
       <DependentUpon>Userform.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Driverform.resx">
+      <DependentUpon>Driverform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employeeform.resx">
       <DependentUpon>Employeeform.cs</DependentUpon>
     </EmbeddedResource>
