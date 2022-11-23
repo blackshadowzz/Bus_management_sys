@@ -67,6 +67,7 @@
             this.btnUserform.Size = new System.Drawing.Size(131, 45);
             this.btnUserform.TabIndex = 4;
             this.btnUserform.Text = "USER";
+            this.btnUserform.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUserform.UseVisualStyleBackColor = false;
             this.btnUserform.Click += new System.EventHandler(this.btnUserform_Click);
             // 
@@ -83,6 +84,7 @@
             this.btnEmpform.Size = new System.Drawing.Size(131, 45);
             this.btnEmpform.TabIndex = 3;
             this.btnEmpform.Text = "EMPLOYEE";
+            this.btnEmpform.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpform.UseVisualStyleBackColor = false;
             this.btnEmpform.Click += new System.EventHandler(this.btnEmpform_Click);
             // 
@@ -92,6 +94,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(0, 43);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
