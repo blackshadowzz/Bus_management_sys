@@ -47,5 +47,10 @@ namespace BusMS
         {
             menuload(new Driverform());
         }
+
+        private void btnBus_Click(object sender, EventArgs e)
+        {
+            menuload(new Busform());
+        }
     }
 }
