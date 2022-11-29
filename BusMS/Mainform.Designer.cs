@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBus = new System.Windows.Forms.Button();
             this.btnDriver = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.btnBus = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -58,9 +58,26 @@
             this.panel1.Size = new System.Drawing.Size(131, 657);
             this.panel1.TabIndex = 0;
             // 
+            // btnBus
+            // 
+            this.btnBus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnBus.FlatAppearance.BorderSize = 0;
+            this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBus.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBus.ForeColor = System.Drawing.Color.White;
+            this.btnBus.Location = new System.Drawing.Point(0, 178);
+            this.btnBus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBus.Name = "btnBus";
+            this.btnBus.Size = new System.Drawing.Size(131, 45);
+            this.btnBus.TabIndex = 6;
+            this.btnBus.Text = "BUS";
+            this.btnBus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBus.UseVisualStyleBackColor = false;
+            this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
+            // 
             // btnDriver
             // 
-            this.btnDriver.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.btnDriver.FlatAppearance.BorderSize = 0;
             this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDriver.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +121,7 @@
             this.btnUserform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserform.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserform.ForeColor = System.Drawing.Color.White;
-            this.btnUserform.Location = new System.Drawing.Point(0, 554);
+            this.btnUserform.Location = new System.Drawing.Point(0, 612);
             this.btnUserform.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUserform.Name = "btnUserform";
             this.btnUserform.Size = new System.Drawing.Size(131, 45);
@@ -116,7 +133,7 @@
             // 
             // btnEmpform
             // 
-            this.btnEmpform.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEmpform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.btnEmpform.FlatAppearance.BorderSize = 0;
             this.btnEmpform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpform.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,7 +150,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -162,23 +179,6 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(1058, 612);
             this.menuPanel.TabIndex = 4;
-            // 
-            // btnBus
-            // 
-            this.btnBus.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBus.FlatAppearance.BorderSize = 0;
-            this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBus.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBus.ForeColor = System.Drawing.Color.White;
-            this.btnBus.Location = new System.Drawing.Point(0, 178);
-            this.btnBus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBus.Name = "btnBus";
-            this.btnBus.Size = new System.Drawing.Size(131, 45);
-            this.btnBus.TabIndex = 6;
-            this.btnBus.Text = "BUS";
-            this.btnBus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBus.UseVisualStyleBackColor = false;
-            this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
             // 
             // Mainform
             // 
