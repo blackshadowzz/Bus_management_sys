@@ -23,7 +23,7 @@ namespace BusMS
         }
         public static void question(string text, string title)
         {
-            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show(text, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
     }
 }

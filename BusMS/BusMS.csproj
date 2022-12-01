@@ -80,6 +80,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDriverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDriverForm.Designer.cs">
+      <DependentUpon>AddDriverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTravelScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTravelScheduleForm.Designer.cs">
+      <DependentUpon>AddTravelScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Busform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,12 +126,24 @@
     <Compile Include="mess_alert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelScheduleform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TravelScheduleform.Designer.cs">
+      <DependentUpon>TravelScheduleform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Userform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Userform.Designer.cs">
       <DependentUpon>Userform.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDriverForm.resx">
+      <DependentUpon>AddDriverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTravelScheduleForm.resx">
+      <DependentUpon>AddTravelScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Busform.resx">
       <DependentUpon>Busform.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TravelScheduleform.resx">
+      <DependentUpon>TravelScheduleform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Userform.resx">
       <DependentUpon>Userform.cs</DependentUpon>
     </EmbeddedResource>

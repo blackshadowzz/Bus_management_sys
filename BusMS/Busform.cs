@@ -20,6 +20,8 @@ namespace BusMS
         OracleConnection conn = DBConnection.Connection();
         private void Busform_Load(object sender, EventArgs e)
         {
+            btnDelete.Visible = false;
+            btnUpdate.Visible = false;
             viewBus();
             cbBusType.Items.Add("Bus");
             cbBusType.Items.Add("Ssamsung");
@@ -27,9 +29,18 @@ namespace BusMS
             cbBusType.Items.Add("Big Bus");
         }
 
+        string id;
+
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            if(btnAddNew.Text=="Add New")
+            if (btnAddNew.Text == "Clear")
+            {
+                clearData();
+                btnAddNew.Text = "Add New";
+                btnDelete.Text = "Cancel";
+                btnUpdate.Enabled = false;
+            }
+            else if(btnAddNew.Text=="Add New")
             {
                 try
                 {
@@ -66,7 +77,7 @@ namespace BusMS
             txtBusNumber.Clear();
             txtBusPlateNo.Clear();
             txtSearch.Clear();
-            cbBusType.Text = "";
+            cbBusType.SelectedItem=null;
         }
 
         private void viewBus()
@@ -81,6 +92,149 @@ namespace BusMS
             dataGridView1.DataSource= dataSet.Tables[0];
 
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            int status = 0;
+            //create command text
+            OracleCommand cmd = new OracleCommand("searchBus", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //add value for parameter stor procedure
+            cmd.Parameters.Add("bustype", txtSearch.Text.Trim());
+            cmd.Parameters.Add("bstatus", status);
+
+            //create dataAdapter object
+            OracleDataAdapter adapter = new OracleDataAdapter();
+            adapter.SelectCommand = cmd;
+            //OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            dt.Dispose();
+            adapter.Dispose();
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAddNew.Text = "Clear";
+            btnDelete.Text = "Delete";
+            btnDelete.Enabled = true;
+            btnUpdate.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Enabled = true;
+
+            id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            cbBusType.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtBusNumber.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtBusPlateNo.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtBusCapSeat.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            
+                if (btnDelete.Text == "Cancel")
+                {
+                    clearData();
+                    btnDelete.Text = "Delete";
+                    btnDelete.Enabled = false;
+                    btnAddNew.Text = "Add New";
+                    btnUpdate.Text = "Update";
+                }
+                else if (btnDelete.Text == "Delete")
+                {
+                    if (MessageBox.Show("Do you want to delete this record!", "Delete Bus",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(txtBusNumber.Text))
+                        {
+                            mess_alert.warning("Please select record to delete!", "Delete Bus");
+
+                        }
+                        else
+                        {
+                            try
+                            {
+                                conn.Open();
+                                OracleCommand cmd = new OracleCommand("deleteBus", conn);
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("b_id", OracleDbType.Int32).Value = int.Parse(id);
+                                cmd.Parameters.Add("b_status", 1);
+                                cmd.ExecuteNonQuery();
+
+                                cmd.Dispose();
+                                viewBus();
+                                mess_alert.warning("One record has been removed successfully!", "Delete Employee");
+                                clearData();
+                                btnAddNew.Text = "Add New";
+                                btnUpdate.Enabled = false;
+
+                            }
+                            catch (Exception ex)
+                            {
+                                mess_alert.error(ex.Message, "Error");
+                            }
+                            finally
+                            {
+                                conn.Close();
+                            }
+                        }
+                }
+            }
+            
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to update this record!", "Update Bus",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (btnUpdate.Text == "Update")
+                {
+                    if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(txtBusNumber.Text))
+                    {
+                        mess_alert.warning("Please select any record to update!", "Update Bus");
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            conn.Open();
+                            OracleCommand cmd = new OracleCommand("updateBus", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("b_id", int.Parse(id));
+                            cmd.Parameters.Add("b_type", cbBusType.Text);
+                            cmd.Parameters.Add("b_number", txtBusNumber.Text);
+                            cmd.Parameters.Add("b_plat_no", txtBusPlateNo.Text);
+                            cmd.Parameters.Add("b_cap_seat", txtBusCapSeat.Text);
+                            cmd.Parameters.Add("b_by", "Mango");
+                            cmd.ExecuteNonQuery();
+
+                            cmd.Dispose();
+                            viewBus();
+                            mess_alert.info("One record has been update successfully!", "Update Bus");
+                            clearData();
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            mess_alert.error(ex.Message, "Error");
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                    }
+                }
+            }
         }
     }
 }

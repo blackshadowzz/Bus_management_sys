@@ -52,5 +52,10 @@ namespace BusMS
         {
             menuload(new Busform());
         }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            menuload(new TravelScheduleform());
+        }
     }
 }

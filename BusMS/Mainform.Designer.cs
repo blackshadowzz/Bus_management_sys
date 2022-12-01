@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.Controls.Add(this.btnBus);
             this.panel1.Controls.Add(this.btnDriver);
             this.panel1.Controls.Add(this.panel3);
@@ -180,6 +182,23 @@
             this.menuPanel.Size = new System.Drawing.Size(1058, 612);
             this.menuPanel.TabIndex = 4;
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.Location = new System.Drawing.Point(0, 222);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(131, 45);
+            this.btnSchedule.TabIndex = 7;
+            this.btnSchedule.Text = "SCHEDULE";
+            this.btnSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -213,5 +232,6 @@
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Button btnDriver;
         private System.Windows.Forms.Button btnBus;
+        private System.Windows.Forms.Button btnSchedule;
     }
 }
