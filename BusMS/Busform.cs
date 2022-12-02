@@ -82,14 +82,25 @@ namespace BusMS
 
         private void viewBus()
         {
-            int status = 0;
-            OracleCommand cmd = new OracleCommand("showBus", conn);
-            cmd.CommandType= CommandType.StoredProcedure;
-            cmd.Parameters.Add("bstatus", status);
-            OracleDataAdapter adapter= new OracleDataAdapter(cmd);
-            DataSet dataSet= new DataSet();
-            adapter.Fill(dataSet);
-            dataGridView1.DataSource= dataSet.Tables[0];
+            try
+            {
+                int status = 0;
+                OracleCommand cmd = new OracleCommand("showBus", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("bstatus", status);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+                dataGridView1.DataSource = dataSet.Tables[0];
+
+            }
+            catch(Exception ex)
+            {
+                mess_alert.error(ex.Message,"Error");
+
+            }
+            finally { conn.Close(); }
+            
 
 
         }

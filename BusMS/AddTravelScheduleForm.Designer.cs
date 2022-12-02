@@ -47,7 +47,7 @@
             this.rbShowMessage = new System.Windows.Forms.RichTextBox();
             this.cbBus = new System.Windows.Forms.ComboBox();
             this.cbDriver = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpScheduleDate = new System.Windows.Forms.DateTimePicker();
             this.ndAmountPerSeat = new System.Windows.Forms.NumericUpDown();
             this.cbStartTime = new System.Windows.Forms.ComboBox();
             this.cbArrivelTime = new System.Windows.Forms.ComboBox();
@@ -76,18 +76,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(313, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 20);
+            this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Bus";
+            this.label2.Text = "Bus Number";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Driver";
+            this.label3.Text = "Driver ID";
             // 
             // label4
             // 
@@ -182,6 +182,7 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -224,20 +225,20 @@
             this.cbDriver.Size = new System.Drawing.Size(283, 28);
             this.cbDriver.TabIndex = 26;
             // 
-            // dateTimePicker1
+            // dtpScheduleDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(317, 141);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(283, 26);
-            this.dateTimePicker1.TabIndex = 27;
+            this.dtpScheduleDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpScheduleDate.Location = new System.Drawing.Point(317, 141);
+            this.dtpScheduleDate.Name = "dtpScheduleDate";
+            this.dtpScheduleDate.Size = new System.Drawing.Size(283, 26);
+            this.dtpScheduleDate.TabIndex = 27;
             // 
             // ndAmountPerSeat
             // 
             this.ndAmountPerSeat.DecimalPlaces = 2;
-            this.ndAmountPerSeat.Location = new System.Drawing.Point(12, 247);
+            this.ndAmountPerSeat.Location = new System.Drawing.Point(16, 247);
             this.ndAmountPerSeat.Name = "ndAmountPerSeat";
-            this.ndAmountPerSeat.Size = new System.Drawing.Size(285, 26);
+            this.ndAmountPerSeat.Size = new System.Drawing.Size(281, 26);
             this.ndAmountPerSeat.TabIndex = 30;
             // 
             // cbStartTime
@@ -264,7 +265,7 @@
             this.Controls.Add(this.cbArrivelTime);
             this.Controls.Add(this.cbStartTime);
             this.Controls.Add(this.ndAmountPerSeat);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpScheduleDate);
             this.Controls.Add(this.cbDriver);
             this.Controls.Add(this.cbBus);
             this.Controls.Add(this.rbShowMessage);
@@ -290,6 +291,7 @@
             this.Name = "AddTravelScheduleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTravelScheduleForm";
+            this.Load += new System.EventHandler(this.AddTravelScheduleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ndAmountPerSeat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -317,7 +319,7 @@
         public System.Windows.Forms.RichTextBox rbShowMessage;
         public System.Windows.Forms.ComboBox cbBus;
         public System.Windows.Forms.ComboBox cbDriver;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dtpScheduleDate;
         public System.Windows.Forms.NumericUpDown ndAmountPerSeat;
         public System.Windows.Forms.ComboBox cbStartTime;
         public System.Windows.Forms.ComboBox cbArrivelTime;

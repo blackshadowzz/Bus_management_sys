@@ -16,5 +16,15 @@ namespace BusMS
         {
             InitializeComponent();
         }
+
+        private void AddTravelScheduleForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }
