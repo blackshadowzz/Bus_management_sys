@@ -30,7 +30,7 @@ namespace BusMS
         }
         private void Mainform_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnUserform_Click(object sender, EventArgs e)

@@ -211,28 +211,28 @@ namespace BusMS
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            conn.Open();
-            //create command text
+            //conn.Open();
+            ////create command text
           
-            OracleCommand cmd = new OracleCommand("searchTravelSchedule", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            //OracleCommand cmd = new OracleCommand("searchTravelSchedule", conn);
+            //cmd.CommandType = CommandType.StoredProcedure;
 
-            //add value for parameter stor procedure
-            cmd.Parameters.Add("start_point", txtSearch.Text.Trim());
+            ////add value for parameter stor procedure
+            //cmd.Parameters.Add("start_point", txtSearch.Text.Trim());
             
 
-            //create dataAdapter object
-            OracleDataAdapter adapter = new OracleDataAdapter();
-            adapter.SelectCommand = cmd;
-            //OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-            DataSet ds=new DataSet();
-            adapter.Fill(ds,"Travel");
-            dataGridView1.DataSource = ds.Tables["Travel"];
+            ////create dataAdapter object
+            //OracleDataAdapter adapter = new OracleDataAdapter();
+            //adapter.SelectCommand = cmd;
+            ////OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+            //DataSet ds=new DataSet();
+            //adapter.Fill(ds,"Travel");
+            //dataGridView1.DataSource = ds.Tables["Travel"];
 
-            ds.Dispose();
-            adapter.Dispose();
-            cmd.Dispose();
-            conn.Close();
+            //ds.Dispose();
+            //adapter.Dispose();
+            //cmd.Dispose();
+            //conn.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -284,6 +284,43 @@ namespace BusMS
         {
             btnEdit.Enabled = true;
             btnDelete.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Do you want to delete this record?","Delete Travel Schedule",MessageBoxButtons.YesNo
+                ,MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                if (btnDelete.Text == "Delete")
+                {
+                    try
+                    {
+                        conn.Open();
+                        int status = 1;
+                        OracleCommand cmd= new OracleCommand("deleteTravelSchedule",conn);
+                        cmd.CommandType= CommandType.StoredProcedure;
+                        cmd.Parameters.Add("t_id", Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                        cmd.Parameters.Add("t_status", status);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                        viewTravelSchedule();
+                        mess_alert.info("One record has been delete successfully!", "Delete Travel Schedule");
+                        
+                    } catch (Exception ex)
+                    {
+                        mess_alert.error(ex.Message,"Error");
+
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }
