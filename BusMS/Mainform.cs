@@ -30,7 +30,7 @@ namespace BusMS
         }
         private void Mainform_Load(object sender, EventArgs e)
         {
-            
+            menuload(new Dashboardform());
         }
 
         private void btnUserform_Click(object sender, EventArgs e)
@@ -56,6 +56,21 @@ namespace BusMS
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             menuload(new TravelScheduleform());
+        }
+
+        private void btncustomer_Click(object sender, EventArgs e)
+        {
+            menuload(new Customerform());
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            menuload(new Dashboardform());
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            menuload(new Bookingform());
         }
     }
 }

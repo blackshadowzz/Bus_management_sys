@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.btnBus = new System.Windows.Forms.Button();
             this.btnDriver = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUserform = new System.Windows.Forms.Button();
             this.btnEmpform = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.btnSchedule = new System.Windows.Forms.Button();
+            this.btncustomer = new System.Windows.Forms.Button();
+            this.btnBooking = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -46,33 +48,53 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.btnBooking);
+            this.panel1.Controls.Add(this.btncustomer);
             this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.Controls.Add(this.btnBus);
             this.panel1.Controls.Add(this.btnDriver);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnUserform);
             this.panel1.Controls.Add(this.btnEmpform);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Font = new System.Drawing.Font("Content", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(131, 657);
             this.panel1.TabIndex = 0;
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.Location = new System.Drawing.Point(0, 222);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(131, 45);
+            this.btnSchedule.TabIndex = 7;
+            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
             // btnBus
             // 
             this.btnBus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.btnBus.FlatAppearance.BorderSize = 0;
             this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBus.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBus.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBus.ForeColor = System.Drawing.Color.White;
             this.btnBus.Location = new System.Drawing.Point(0, 178);
             this.btnBus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBus.Name = "btnBus";
             this.btnBus.Size = new System.Drawing.Size(131, 45);
             this.btnBus.TabIndex = 6;
-            this.btnBus.Text = "BUS";
+            this.btnBus.Text = "Bus";
             this.btnBus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBus.UseVisualStyleBackColor = false;
             this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
@@ -82,14 +104,14 @@
             this.btnDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.btnDriver.FlatAppearance.BorderSize = 0;
             this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDriver.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDriver.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDriver.ForeColor = System.Drawing.Color.White;
             this.btnDriver.Location = new System.Drawing.Point(0, 133);
             this.btnDriver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(131, 45);
             this.btnDriver.TabIndex = 5;
-            this.btnDriver.Text = "DRIVER";
+            this.btnDriver.Text = "Driver";
             this.btnDriver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDriver.UseVisualStyleBackColor = false;
             this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
@@ -121,7 +143,7 @@
             this.btnUserform.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnUserform.FlatAppearance.BorderSize = 0;
             this.btnUserform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserform.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserform.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserform.ForeColor = System.Drawing.Color.White;
             this.btnUserform.Location = new System.Drawing.Point(0, 612);
             this.btnUserform.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -138,32 +160,35 @@
             this.btnEmpform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
             this.btnEmpform.FlatAppearance.BorderSize = 0;
             this.btnEmpform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpform.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpform.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpform.ForeColor = System.Drawing.Color.White;
             this.btnEmpform.Location = new System.Drawing.Point(0, 88);
             this.btnEmpform.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEmpform.Name = "btnEmpform";
             this.btnEmpform.Size = new System.Drawing.Size(131, 45);
             this.btnEmpform.TabIndex = 3;
-            this.btnEmpform.Text = "EMPLOYEE";
+            this.btnEmpform.Text = "Employee";
             this.btnEmpform.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpform.UseVisualStyleBackColor = false;
             this.btnEmpform.Click += new System.EventHandler(this.btnEmpform_Click);
             // 
-            // button1
+            // btnDashboard
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 43);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "DASHBOARD";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 43);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(131, 45);
+            this.btnDashboard.TabIndex = 2;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel2
             // 
@@ -182,22 +207,39 @@
             this.menuPanel.Size = new System.Drawing.Size(1058, 612);
             this.menuPanel.TabIndex = 4;
             // 
-            // btnSchedule
+            // btncustomer
             // 
-            this.btnSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.ForeColor = System.Drawing.Color.White;
-            this.btnSchedule.Location = new System.Drawing.Point(0, 222);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(131, 45);
-            this.btnSchedule.TabIndex = 7;
-            this.btnSchedule.Text = "SCHEDULE";
-            this.btnSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            this.btncustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btncustomer.FlatAppearance.BorderSize = 0;
+            this.btncustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncustomer.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncustomer.ForeColor = System.Drawing.Color.White;
+            this.btncustomer.Location = new System.Drawing.Point(0, 267);
+            this.btncustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btncustomer.Name = "btncustomer";
+            this.btncustomer.Size = new System.Drawing.Size(131, 45);
+            this.btncustomer.TabIndex = 8;
+            this.btncustomer.Text = "Customer";
+            this.btncustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncustomer.UseVisualStyleBackColor = false;
+            this.btncustomer.Click += new System.EventHandler(this.btncustomer_Click);
+            // 
+            // btnBooking
+            // 
+            this.btnBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnBooking.FlatAppearance.BorderSize = 0;
+            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooking.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.ForeColor = System.Drawing.Color.White;
+            this.btnBooking.Location = new System.Drawing.Point(0, 311);
+            this.btnBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(131, 45);
+            this.btnBooking.TabIndex = 9;
+            this.btnBooking.Text = "Booking";
+            this.btnBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBooking.UseVisualStyleBackColor = false;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // Mainform
             // 
@@ -212,7 +254,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main Form";
+            this.Text = "   ";
             this.Load += new System.EventHandler(this.Mainform_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -223,7 +265,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnEmpform;
         private System.Windows.Forms.Button btnUserform;
         private System.Windows.Forms.Label label1;
@@ -233,5 +275,7 @@
         private System.Windows.Forms.Button btnDriver;
         private System.Windows.Forms.Button btnBus;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Button btncustomer;
+        private System.Windows.Forms.Button btnBooking;
     }
 }

@@ -110,6 +110,7 @@ namespace BusMS
                 DataSet ds = new DataSet();
                 ad.Fill(ds, "Travel");
                 dataGridView1.DataSource = ds.Tables["Travel"];
+                dataGridView1.Columns[11].Visible = false;
 
                 ds.Dispose();
                 ad.Dispose();
@@ -269,7 +270,37 @@ namespace BusMS
                     if (MessageBox.Show("Do you want to update this record?", "Update Record",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        try
+                        {
+                            conn.Open();
+                            OracleCommand cmd= new OracleCommand("updateTravelSchedule",conn);
+                            cmd.CommandType= CommandType.StoredProcedure;
+                            cmd.Parameters.Add("t_id", int.Parse(f.txtID.Text));
+                            cmd.Parameters.Add("t_bus",int.Parse(f.cbBus.SelectedValue.ToString()));
+                            cmd.Parameters.Add("t_driver", Convert.ToInt32(f.cbDriver.SelectedValue));
+                            cmd.Parameters.Add("t_start_point", f.txtStartPoint.Text);
+                            cmd.Parameters.Add("t_destination",f.txtDestination.Text);
+                            cmd.Parameters.Add("t_date", f.dtpScheduleDate.Value);
+                            cmd.Parameters.Add("t_start_time",f.cbStartTime.Text);
+                            cmd.Parameters.Add("t_arrival_time",f.cbArrivelTime.Text);
+                            cmd.Parameters.Add("t_amount",Convert.ToDecimal( f.ndAmountPerSeat.Value));
+                            cmd.Parameters.Add("t_desc", f.rbDescription.Text);
+                            cmd.Parameters.Add("t_by", "Mango");
+                            cmd.ExecuteNonQuery();
 
+                           cmd.Dispose();
+                            viewTravelSchedule();
+                            mess_alert.info("One record has been updated successfully!", "Update Travel Schedule");
+
+
+                        }catch(Exception ex)
+                        {
+                            mess_alert.error(ex.Message,"Error");
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
                     }
                 }
                 else

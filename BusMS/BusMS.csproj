@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomerForm.Designer.cs">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddDriverForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,11 +98,29 @@
     <Compile Include="AddTravelScheduleForm.Designer.cs">
       <DependentUpon>AddTravelScheduleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bookingform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookingform.Designer.cs">
+      <DependentUpon>Bookingform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Busform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Busform.Designer.cs">
       <DependentUpon>Busform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customerform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customerform.Designer.cs">
+      <DependentUpon>Customerform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboardform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboardform.Designer.cs">
+      <DependentUpon>Dashboardform.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="Driverform.cs">
@@ -145,14 +169,26 @@
       <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="userLoginClass.cs" />
+    <EmbeddedResource Include="AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDriverForm.resx">
       <DependentUpon>AddDriverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTravelScheduleForm.resx">
       <DependentUpon>AddTravelScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bookingform.resx">
+      <DependentUpon>Bookingform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Busform.resx">
       <DependentUpon>Busform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customerform.resx">
+      <DependentUpon>Customerform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboardform.resx">
+      <DependentUpon>Dashboardform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Driverform.resx">
       <DependentUpon>Driverform.cs</DependentUpon>
