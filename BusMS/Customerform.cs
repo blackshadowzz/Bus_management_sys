@@ -30,7 +30,10 @@ namespace BusMS
                 OracleDataAdapter ad = new OracleDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 ad.Fill(ds, "Cust");
+                dataGridView1.RowTemplate.Height = 35;
+
                 dataGridView1.DataSource = ds.Tables["Cust"];
+                dataGridView1.Columns[9].Visible = false;
 
                 ds.Dispose();
                 ad.Dispose();
@@ -65,48 +68,172 @@ namespace BusMS
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             AddCustomerForm f = new AddCustomerForm();
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
 
             f.ShowDialog();
 
             if(f.lbAddCustomerForm.Text=="Add Customer")
             {
-                if (f.txtName.Text == "")
+                if (f.DialogResult == DialogResult.OK)
                 {
-                    mess_alert.info("Customer name is required!", "Required Field");
-                    f.txtName.Focus();
-                    return;
-                }else if (f.txtPhone.Text == "")
-                {
-                    mess_alert.info("Customer phone is required!", "Required Field");
-                    f.txtPhone.Focus();
-                    return;
-                }else if (f.txtEmail.Text == "")
-                {
-                    mess_alert.info("Customer email is required!", "Required Field");
-                    f.txtEmail.Focus();
-                    return;
-                }
+                    if (f.txtName.Text == "")
+                    {
+                        mess_alert.info("Customer name is required!", "Required Field");
+                        f.txtName.Focus();
+                        return;
+                    }
+                    else if (f.txtPhone.Text == "")
+                    {
+                        mess_alert.info("Customer phone is required!", "Required Field");
+                        f.txtPhone.Focus();
+                        return;
+                    }
+                    else if (f.txtEmail.Text == "")
+                    {
+                        mess_alert.info("Customer email is required!", "Required Field");
+                        f.txtEmail.Focus();
+                        return;
+                    }
 
-                if (f.btnSave.Text == "Save")
+                    if (f.btnSave.Text == "Save")
+                    {
+                        try
+                        {
+                            conn.Open();
+                            OracleCommand cmd = new OracleCommand("addCustomer", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("c_name", f.txtName.Text);
+                            cmd.Parameters.Add("c_phone", f.txtPhone.Text);
+                            cmd.Parameters.Add("c_email", f.txtEmail.Text);
+                            cmd.Parameters.Add("c_address", f.rbAddress.Text);
+                            cmd.Parameters.Add("c_by", "Admin");
+                            cmd.ExecuteNonQuery();
+                            cmd.Dispose();
+
+                            viewCustomer();
+                            mess_alert.info("One record has been added successfully!", "Add Customer");
+                            clearData();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            mess_alert.error(ex.Message, "Error");
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+            
+                
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(btnDelete.Text== "Delete")
+            {
+                if(MessageBox.Show("Do you to delete this record","Delete Customer",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
                         conn.Open();
-                        OracleCommand cmd = new OracleCommand("addCustomer", conn);
+                        int status = 1;
+                        OracleCommand cmd = new OracleCommand("deleteCustomer", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("c_name", f.txtName.Text);
-                        cmd.Parameters.Add("c_phone", f.txtPhone.Text);
-                        cmd.Parameters.Add("c_email", f.txtEmail.Text);
-                        cmd.Parameters.Add("c_address", f.rbAddress.Text);
+                        cmd.Parameters.Add("c_id", Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                        cmd.Parameters.Add("c_status", status);
+                        cmd.ExecuteNonQuery();
+                         cmd.Dispose();
+                         viewCustomer();
+                        mess_alert.info("One record has been delete successfully!", "Delete Customer");
+
+                    }catch(Exception ex)
+                    {
+                        mess_alert.error(ex.Message, "Error");
+                    }
+                    finally { conn.Close(); }
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDelete.Enabled = true;
+            btnEdit.Enabled = true;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            viewCustomer();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AddCustomerForm edit=new AddCustomerForm();
+            edit.lbAddCustomerForm.Text = "Update Customer";
+            edit.btnSave.Text = "Update Now";
+
+            edit.txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            edit.txtName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            edit.txtPhone.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            edit.txtEmail.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            edit.rbAddress.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+            edit.ShowDialog();
+            if (edit.DialogResult == DialogResult.OK)
+            {
+                if (edit.txtName.Text == "")
+                {
+                    mess_alert.info("Customer name is required!", "Required Field");
+                    edit.txtName.Focus();
+                    return;
+                }
+                else if (edit.txtPhone.Text == "")
+                {
+                    mess_alert.info("Customer phone is required!", "Required Field");
+                    edit.txtPhone.Focus();
+                    return;
+                }
+                else if (edit.txtEmail.Text == "")
+                {
+                    mess_alert.info("Customer email is required!", "Required Field");
+                    edit.txtEmail.Focus();
+                    return;
+                }
+
+                if (edit.btnSave.Text == "Update Now")
+                {
+                    try
+                    {
+                        conn.Open();
+                        OracleCommand cmd = new OracleCommand("updateCustomer", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("c_id",int.Parse(edit.txtID.Text));
+                        cmd.Parameters.Add("c_name", edit.txtName.Text);
+                        cmd.Parameters.Add("c_phone", edit.txtPhone.Text);
+                        cmd.Parameters.Add("c_email", edit.txtEmail.Text);
+                        cmd.Parameters.Add("c_address", edit.rbAddress.Text);
                         cmd.Parameters.Add("c_by", "Admin");
                         cmd.ExecuteNonQuery();
+
                         cmd.Dispose();
 
                         viewCustomer();
-                        mess_alert.info("One record has been added successfully!", "Add Customer");
+                        mess_alert.info("One record has been delete successfully!", "Add Customer");
                         clearData();
 
-                    }catch(Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         mess_alert.error(ex.Message, "Error");
                     }
@@ -115,13 +242,9 @@ namespace BusMS
                         conn.Close();
                     }
                 }
-
-            }
-            else
-            {
-
             }
 
+            
         }
     }
 }
