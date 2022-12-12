@@ -26,5 +26,10 @@ namespace BusMS
         {
             this.Close();
         }
+
+        private void AddCustomerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

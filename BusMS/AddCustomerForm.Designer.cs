@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbAddCustomerForm = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lbAddCustomerForm = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -61,16 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(531, 35);
             this.panel1.TabIndex = 0;
             // 
-            // lbAddCustomerForm
-            // 
-            this.lbAddCustomerForm.AutoSize = true;
-            this.lbAddCustomerForm.ForeColor = System.Drawing.Color.White;
-            this.lbAddCustomerForm.Location = new System.Drawing.Point(3, 8);
-            this.lbAddCustomerForm.Name = "lbAddCustomerForm";
-            this.lbAddCustomerForm.Size = new System.Drawing.Size(111, 20);
-            this.lbAddCustomerForm.TabIndex = 1;
-            this.lbAddCustomerForm.Text = "Add Customer";
-            // 
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -85,6 +75,16 @@
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lbAddCustomerForm
+            // 
+            this.lbAddCustomerForm.AutoSize = true;
+            this.lbAddCustomerForm.ForeColor = System.Drawing.Color.White;
+            this.lbAddCustomerForm.Location = new System.Drawing.Point(3, 8);
+            this.lbAddCustomerForm.Name = "lbAddCustomerForm";
+            this.lbAddCustomerForm.Size = new System.Drawing.Size(111, 20);
+            this.lbAddCustomerForm.TabIndex = 1;
+            this.lbAddCustomerForm.Text = "Add Customer";
             // 
             // panel2
             // 
@@ -235,6 +235,7 @@
             this.Name = "AddCustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddCustomerForm";
+            this.Load += new System.EventHandler(this.AddCustomerForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

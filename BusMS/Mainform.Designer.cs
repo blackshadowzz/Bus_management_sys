@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBooking = new System.Windows.Forms.Button();
+            this.btncustomer = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.btnBus = new System.Windows.Forms.Button();
             this.btnDriver = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.btncustomer = new System.Windows.Forms.Button();
-            this.btnBooking = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(131, 657);
             this.panel1.TabIndex = 0;
+            // 
+            // btnBooking
+            // 
+            this.btnBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btnBooking.FlatAppearance.BorderSize = 0;
+            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooking.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.ForeColor = System.Drawing.Color.White;
+            this.btnBooking.Location = new System.Drawing.Point(0, 311);
+            this.btnBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(131, 45);
+            this.btnBooking.TabIndex = 9;
+            this.btnBooking.Text = "Booking";
+            this.btnBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBooking.UseVisualStyleBackColor = false;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
+            // 
+            // btncustomer
+            // 
+            this.btncustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
+            this.btncustomer.FlatAppearance.BorderSize = 0;
+            this.btncustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncustomer.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncustomer.ForeColor = System.Drawing.Color.White;
+            this.btncustomer.Location = new System.Drawing.Point(0, 267);
+            this.btncustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btncustomer.Name = "btncustomer";
+            this.btncustomer.Size = new System.Drawing.Size(131, 45);
+            this.btncustomer.TabIndex = 8;
+            this.btncustomer.Text = "Customer";
+            this.btncustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncustomer.UseVisualStyleBackColor = false;
+            this.btncustomer.Click += new System.EventHandler(this.btncustomer_Click);
             // 
             // btnSchedule
             // 
@@ -206,40 +240,6 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(1058, 612);
             this.menuPanel.TabIndex = 4;
-            // 
-            // btncustomer
-            // 
-            this.btncustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
-            this.btncustomer.FlatAppearance.BorderSize = 0;
-            this.btncustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncustomer.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncustomer.ForeColor = System.Drawing.Color.White;
-            this.btncustomer.Location = new System.Drawing.Point(0, 267);
-            this.btncustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btncustomer.Name = "btncustomer";
-            this.btncustomer.Size = new System.Drawing.Size(131, 45);
-            this.btncustomer.TabIndex = 8;
-            this.btncustomer.Text = "Customer";
-            this.btncustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncustomer.UseVisualStyleBackColor = false;
-            this.btncustomer.Click += new System.EventHandler(this.btncustomer_Click);
-            // 
-            // btnBooking
-            // 
-            this.btnBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(67)))));
-            this.btnBooking.FlatAppearance.BorderSize = 0;
-            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBooking.Font = new System.Drawing.Font("Content", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooking.ForeColor = System.Drawing.Color.White;
-            this.btnBooking.Location = new System.Drawing.Point(0, 311);
-            this.btnBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBooking.Name = "btnBooking";
-            this.btnBooking.Size = new System.Drawing.Size(131, 45);
-            this.btnBooking.TabIndex = 9;
-            this.btnBooking.Text = "Booking";
-            this.btnBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBooking.UseVisualStyleBackColor = false;
-            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // Mainform
             // 
