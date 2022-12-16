@@ -127,6 +127,8 @@ namespace BusMS
             f.rbShowMessage.Visible = false;
             f.Text = "Add Travel Schedule";
             f.btnSave.Text = "Save";
+            btnDelete.Enabled= false;
+            btnEdit.Enabled= false;
             viewDriver();
             viewBus();
             //addTime();
@@ -208,6 +210,8 @@ namespace BusMS
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             viewTravelSchedule();
+            btnEdit.Enabled= false;
+            btnDelete.Enabled= false;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

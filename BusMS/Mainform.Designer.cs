@@ -275,7 +275,7 @@
         private System.Windows.Forms.Button btnDriver;
         private System.Windows.Forms.Button btnBus;
         private System.Windows.Forms.Button btnSchedule;
-        private System.Windows.Forms.Button btncustomer;
         private System.Windows.Forms.Button btnBooking;
+        public System.Windows.Forms.Button btncustomer;
     }
 }

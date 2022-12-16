@@ -75,5 +75,10 @@ namespace BusMS
                 txtUsername.Focus();
             }
         }
+
+        private void UserLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

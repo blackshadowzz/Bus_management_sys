@@ -174,7 +174,10 @@ namespace BusMS
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            
             viewCustomer();
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
