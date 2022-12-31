@@ -67,6 +67,8 @@ namespace BusMS
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "Drive");
                 dataGridView1.DataSource = ds.Tables["Drive"];
+                int count = dataGridView1.RowCount;
+                lbDriveTotal.Text = count.ToString();
 
                 ds.Dispose();
                 adapter.Dispose();

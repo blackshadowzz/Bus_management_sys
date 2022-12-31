@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbEmpTotal = new System.Windows.Forms.Label();
+            this.lbDriveTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -48,7 +48,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.panel1.Controls.Add(this.lbEmpTotal);
+            this.panel1.Controls.Add(this.lbDriveTotal);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -58,17 +58,17 @@
             this.panel1.Size = new System.Drawing.Size(1058, 27);
             this.panel1.TabIndex = 3;
             // 
-            // lbEmpTotal
+            // lbDriveTotal
             // 
-            this.lbEmpTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEmpTotal.AutoSize = true;
-            this.lbEmpTotal.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEmpTotal.Location = new System.Drawing.Point(969, 2);
-            this.lbEmpTotal.Name = "lbEmpTotal";
-            this.lbEmpTotal.Size = new System.Drawing.Size(36, 21);
-            this.lbEmpTotal.TabIndex = 29;
-            this.lbEmpTotal.Text = "Qty";
-            this.lbEmpTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbDriveTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDriveTotal.AutoSize = true;
+            this.lbDriveTotal.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDriveTotal.Location = new System.Drawing.Point(969, 2);
+            this.lbDriveTotal.Name = "lbDriveTotal";
+            this.lbDriveTotal.Size = new System.Drawing.Size(36, 21);
+            this.lbDriveTotal.TabIndex = 29;
+            this.lbDriveTotal.Text = "Qty";
+            this.lbDriveTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label13
             // 
@@ -99,6 +99,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -221,7 +223,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbEmpTotal;
+        private System.Windows.Forms.Label lbDriveTotal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;

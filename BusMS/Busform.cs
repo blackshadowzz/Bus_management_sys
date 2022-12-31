@@ -92,6 +92,10 @@ namespace BusMS
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 dataGridView1.DataSource = dataSet.Tables[0];
+                int count = dataGridView1.RowCount;
+                lbBusTotal.Text = count.ToString();
+
+                cmd.Dispose();
 
             }
             catch(Exception ex)

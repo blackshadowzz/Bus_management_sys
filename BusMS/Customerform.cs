@@ -33,6 +33,9 @@ namespace BusMS
                 dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.DataSource = ds.Tables["Cust"];
+                int count = dataGridView1.RowCount;
+                lbEmpTotal.Text = count.ToString();
+
                 dataGridView1.Columns[9].Visible = false;
 
                 ds.Dispose();
@@ -248,6 +251,11 @@ namespace BusMS
             }
 
             
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

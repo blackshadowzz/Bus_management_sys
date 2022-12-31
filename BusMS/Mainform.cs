@@ -30,6 +30,23 @@ namespace BusMS
         }
         private void Mainform_Load(object sender, EventArgs e)
         {
+            
+            btnUserLogin.Text=userLoginClass.getUserType();
+            btnTime.Text = "Time: " + DateTime.Now.ToString();
+            if (btnUserLogin.Text != "Admin")
+            {
+                btnEmpform.Visible = false;
+
+                btnUserform.Visible = false;
+                btncustomer.Visible = false;
+                btnSetting.Visible = false;
+                btnDriver.Visible = false;
+                btnBus.Visible = false;
+                btnDashboard.Visible = false;
+                menuload(new Bookingform());
+                return;
+                
+            }
             menuload(new Dashboardform());
         }
 
@@ -71,6 +88,25 @@ namespace BusMS
         private void btnBooking_Click(object sender, EventArgs e)
         {
             menuload(new Bookingform());
+        }
+
+        private void Mainform_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBookingPay_Click(object sender, EventArgs e)
+        {
+            menuload(new Paymentform());
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            UserLogin l=new UserLogin();
+            
+            l.Show();
+            this.Hide();
+
         }
     }
 }

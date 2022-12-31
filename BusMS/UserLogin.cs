@@ -78,7 +78,8 @@ namespace BusMS
 
         private void UserLogin_Load(object sender, EventArgs e)
         {
-
+            txtUsername.Text = "admin";
+            txtPassword.Text = "123";
         }
     }
 }

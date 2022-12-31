@@ -16,5 +16,10 @@ namespace BusMS
         {
             InitializeComponent();
         }
+
+        private void Dashboardform_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

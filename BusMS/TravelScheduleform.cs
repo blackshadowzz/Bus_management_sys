@@ -18,7 +18,7 @@ namespace BusMS
             InitializeComponent();
         }
         OracleConnection conn = DBConnection.Connection();
-        AddTravelScheduleForm f=new AddTravelScheduleForm();
+        AddTravelScheduleForm f = new AddTravelScheduleForm();
 
         void addTime()
         {
@@ -110,6 +110,8 @@ namespace BusMS
                 DataSet ds = new DataSet();
                 ad.Fill(ds, "Travel");
                 dataGridView1.DataSource = ds.Tables["Travel"];
+                int count = dataGridView1.RowCount;
+                lbScheduleTotal.Text=count.ToString();
                 dataGridView1.Columns[11].Visible = false;
 
                 ds.Dispose();
@@ -173,7 +175,7 @@ namespace BusMS
                         cmd.Parameters.Add("t_driver",Convert.ToInt32(f.cbDriver.SelectedValue));
                         cmd.Parameters.Add("t_start_point", f.txtStartPoint.Text);
                         cmd.Parameters.Add("t_destination",f.txtDestination.Text);
-                        cmd.Parameters.Add("t_date",OracleDbType.Date).Value=f.dtpScheduleDate.Value;
+                        cmd.Parameters.Add("t_date",f.dtpScheduleDate.Value);
                         cmd.Parameters.Add("t_start_time", f.cbStartTime.Text);
                         cmd.Parameters.Add("t_arrival_time",f.cbArrivelTime.Text);
                         cmd.Parameters.Add("t_amount",decimal.Parse(f.ndAmountPerSeat.Text));
@@ -252,13 +254,13 @@ namespace BusMS
             f.txtID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             f.cbBus.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             f.cbDriver.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            f.txtStartPoint.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            f.txtDestination.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            f.dtpScheduleDate.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            f.cbStartTime.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            f.cbArrivelTime.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            f.ndAmountPerSeat.Value =Convert.ToDecimal( dataGridView1.CurrentRow.Cells[9].Value.ToString());
-            f.rbDescription.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            f.txtStartPoint.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            f.txtDestination.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            f.dtpScheduleDate.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+            f.cbStartTime.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            f.cbArrivelTime.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            f.ndAmountPerSeat.Value =Convert.ToInt32( dataGridView1.CurrentRow.Cells[10].Value.ToString());
+            f.rbDescription.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
 
             if (f.txtID.Text == "")
             {

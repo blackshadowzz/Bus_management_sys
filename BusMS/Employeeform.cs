@@ -104,6 +104,8 @@ namespace BusMS
             DataSet ds = new DataSet();
             ad.Fill(ds, "emp");
             dataGridView1.DataSource = ds.Tables["emp"];
+            int count = dataGridView1.RowCount;
+            lbEmpTotal.Text = count.ToString();
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[10].Visible = false;
