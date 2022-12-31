@@ -1,6 +1,7 @@
 # BusMS
 
 => Main Table 
+
 	+ User
 		- id
 		- fullname
